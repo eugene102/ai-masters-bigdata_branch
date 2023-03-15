@@ -12,6 +12,10 @@ categorical_features = ["cf"+str(i) for i in range(1,27)] + ["day_number"]
 used_categorical_features = ["cf6", "cf9", "cf13", "cf16", "cf17", "cf19", "cf25", "cf26"]
 
 fields = ["id", "label"] + numeric_features + categorical_features
+fields_types = dict(zip(numeric_features, [float] * len(numeric_features)))
+fields_types.update(dict(zip(categorical_features, [str] * len(categorical_features))))
+fields_types.update({'id': int, 'label': int})
+
 
 #
 # Model pipeline
